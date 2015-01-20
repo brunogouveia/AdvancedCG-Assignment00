@@ -1,0 +1,21 @@
+as01: NDC to RGB
+
+Bruno Henrique Gouveia
+
+Most of the code was given by Willem A. (Vlakkies) Schreuder, the shaders were implemented by me.
+
+Time to complete: 1 hour
+
+How to build: you just need to type the make.
+
+Key bindings
+  m/M        Cycle through shaders
+  o/O        Cycle through objects
+  p/P        Toggle between orthogonal & perspective projection
+  a          Toggle axes
+  arrows     Change view angle
+  PgDn/PgUp  Zoom in and out
+  0          Reset view angle
+  ESC        Exit
+
+You can also rotate using the mouse. You need to hold the left button and move your mouse to rotate.
