@@ -18,6 +18,10 @@
 #include "CSCIx239.h"
 int mx;
 int my;
+float dx = 0.0f;
+float dy = 0.0f;
+float dz = 0.0f;
+const float step = 0.1;
 int axes=1;       //  Display axes
 int mode=0;       //  Shader mode
 int move=1;       //  Move light
@@ -110,6 +114,7 @@ void display()
    //  Perspective - set eye position
    if (proj)
    {
+      glTranslatef(dx, dy, dz);
       double Ex = -2*dim*Sin(th)*Cos(ph);
       double Ey = +2*dim        *Sin(ph);
       double Ez = +2*dim*Cos(th)*Cos(ph);
@@ -118,6 +123,7 @@ void display()
    //  Orthogonal - set world orientation
    else
    {
+      glTranslatef(dx, dy, dz);
       glRotatef(ph,1,0,0);
       glRotatef(th,0,1,0);
    }
@@ -221,10 +227,14 @@ void key(unsigned char ch,int xch,int ych)
    if (ch == 27)
       exit(0);
    //  Reset view angle
-   else if (ch == '0')
+   else if (ch == '0'){
       th = ph = 0;
+      dx = 0;
+      dy = 0;
+      dz = 0;
+   }
    //  Toggle axes
-   else if (ch == 'a' || ch == 'A')
+   else if (ch == 'x' || ch == 'X')
       axes = 1-axes;
    //  Toggle projection type
    else if (ch == 'p' || ch == 'P')
@@ -235,6 +245,19 @@ void key(unsigned char ch,int xch,int ych)
    //  Cycle modes
    else if (ch == 'm' || ch == 'M')
       mode = (mode + 1) % 4;
+   else if (ch == 'a' || ch == 'a')
+      dx -= step;
+   else if (ch == 'd' || ch == 'D')
+      dx += step;
+   else if (ch == 'w' || ch == 'W')
+      dz += step;
+   else if (ch == 's' || ch == 'S')
+      dz -= step;
+   else if (ch == 'z' || ch == 'Z')
+      dy -= step;
+   else if (ch == 'q' || ch == 'Q')
+      dy += step;
+
    //  Reproject
    Project(proj?fov:0,asp,dim);
    //  Tell GLUT it is necessary to redisplay the scene

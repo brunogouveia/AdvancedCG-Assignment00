@@ -12,10 +12,16 @@ Key bindings
   m/M        Cycle through shaders
   o/O        Cycle through objects
   p/P        Toggle between orthogonal & perspective projection
-  a          Toggle axes
+  x          Toggle axes
   arrows     Change view angle
   PgDn/PgUp  Zoom in and out
   0          Reset view angle
+  w/W 		 Move camera forward
+  s/S 		 Move camera backward
+  a/A 		 Move camera left
+  d/D        Move camera right
+  q/Q 		 Move camera up
+  z/Z 		 Move camera down
   ESC        Exit
 
 You can also rotate using the mouse. You need to hold the left button and move your mouse to rotate.
